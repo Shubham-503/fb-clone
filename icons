@@ -1,0 +1,9 @@
+fb-icon   ---    https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png
+search icon ===  import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+
+home === 'import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+watch ===import OndemandVideoOutlinedIcon from '@material-ui/icons/OndemandVideoOutlined';
+
+
+avatar === import AccountCircleTwoToneIcon from '@material-ui/icons/AccountCircleTwoTone';
+plus === import AddTwoToneIcon from '@material-ui/icons/AddTwoTone';

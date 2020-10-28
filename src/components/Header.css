@@ -1,0 +1,79 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  /* position: fixed; */
+  color: blue;
+}
+
+.header__left {
+  display: flex;
+  margin-left: 1em;
+  width: 30%;
+}
+
+.header__left > img {
+  width: 40px;
+  object-fit: contain;
+}
+
+.header__searchText {
+  outline: none;
+  border: none;
+  background-color: #f0f2f5;
+}
+
+.header__searchText:focus {
+  outline: none;
+}
+
+.header__search {
+  display: flex;
+  flex: 1;
+  background-color: #f0f2f5;
+  margin: 0.35em;
+  padding: 0.55em;
+  border-radius: 1.35em;
+}
+
+.header__center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid red;
+  width: 40%;
+}
+
+/* .header__centerWatch,
+.header__centerHome,
+.header__centerMarketPlace,
+.header__centerGroup,
+.header__centerGaming { */
+
+.header__center > div {
+  padding: 14px 40px;
+}
+.header__center > div:hover {
+  background-color: #f0f2f5;
+  border-radius: 15px;
+}
+
+.header__right {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  border: 2px solid red;
+  width: 30%;
+}
+
+.header__rightAvatar {
+  display: flex;
+}
+
+.header__right > div {
+  margin: 0.25em 0.5em;
+}
+.header__right > div:hover {
+  background-color: #f0f2f5;
+  border-radius: 15px;
+}
