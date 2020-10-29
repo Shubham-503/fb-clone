@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import Story from "./Story";
 import SidebarRow from "./SidebarRow";
@@ -6,9 +6,23 @@ import FlagIcon from "@material-ui/icons/Flag";
 import StorefrontOutlinedIcon from "@material-ui/icons/StorefrontOutlined";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import { OndemandVideo } from "@material-ui/icons";
+import { Avatar } from "@material-ui/core";
+import VideocamIcon from "@material-ui/icons/Videocam";
+import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
+import MoodIcon from "@material-ui/icons/Mood";
 import "./Body.css";
 
 function Body() {
+  const [msg, setMsg] = useState("");
+  const [image, setImage] = useState("");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    //some db stuff
+
+    setMsg("");
+    setImage("");
+  };
   return (
     <div className="body">
       <div className="body__left">
@@ -116,6 +130,41 @@ function Body() {
             profileSrc="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX88gx1c&_nc_ht=scontent.fccu3-1.fna&oh=50090b44c4cc2ad074f260b136bffbc5&oe=5FC0ABA7"
             src="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX-FwEsH&_nc_ht=scontent.fccu3-1.fna&oh=e6b4a96427941df9be643551dbacdf81&oe=5FC0ABA7"
           />
+        </div>
+
+        <div className="message">
+          <div className="message__top">
+            <form>
+              <Avatar />
+              <input
+                value={msg}
+                onChange={(e) => setMsg(e.target.value)}
+                className="message__post"
+                placeholder="what's on your mind?"
+              />
+              <input
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+                className="message__image"
+                placeholder="Image Url(Optional)"
+              />
+              <button onClick={handleClick}>Hidden Button</button>
+            </form>
+          </div>
+          <div className="message__bottom">
+            <div className="message__option">
+              <VideocamIcon style={{ color: "red" }} />
+              <h3>Live Video</h3>
+            </div>
+            <div className="message__option">
+              <PhotoLibraryIcon style={{ color: "green" }} />
+              <h3>Photo/Video</h3>
+            </div>
+            <div className="message__option">
+              <MoodIcon style={{ color: "orange" }} />
+              <h3>Feeling/Activity</h3>
+            </div>
+          </div>
         </div>
       </div>
       <div className="body__right"></div>
