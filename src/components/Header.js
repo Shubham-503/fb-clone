@@ -5,8 +5,11 @@ import OndemandVideoOutlinedIcon from "@material-ui/icons/OndemandVideoOutlined"
 import StorefrontOutlinedIcon from "@material-ui/icons/StorefrontOutlined";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import ViewCompactTwoToneIcon from "@material-ui/icons/ViewCompactTwoTone";
-import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
-import AddTwoToneIcon from "@material-ui/icons/AddTwoTone";
+import { IconButton, Avatar } from "@material-ui/core";
+import AddIcon from "@material-ui/icons/Add";
+import ForumIcon from "@material-ui/icons/Forum";
+import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import "./Header.css";
 
 function Header() {
@@ -33,47 +36,55 @@ function Header() {
 
       <div className="header__center">
         <div className="header__centerHome">
-          <HomeOutlinedIcon />
+          <HomeOutlinedIcon fontSize="large" />
         </div>
 
         <div className="header__centerWatch">
-          <OndemandVideoOutlinedIcon />
+          <OndemandVideoOutlinedIcon fontSize="large" />
         </div>
 
         <div className="header__centerMarketPlace">
-          <StorefrontOutlinedIcon />
+          <StorefrontOutlinedIcon fontSize="large" />
         </div>
 
         <div className="header__centerGroup">
-          <SupervisedUserCircleIcon />
+          <SupervisedUserCircleIcon fontSize="large" />
         </div>
 
         <div className="header__centerGaming">
-          <ViewCompactTwoToneIcon />
+          <ViewCompactTwoToneIcon fontSize="large" />
         </div>
       </div>
 
       <div className="header__right">
         <div className="header__rightAvatar">
           <div className="header__rightAvatar__image">
-            <AccountCircleTwoToneIcon />
+            <Avatar fontSize="large" />
           </div>
           <div className="header__rightAvatar__name">
-            <span>Kumar</span>
+            <h4>Kumar</h4>
           </div>
         </div>
 
         <div className="header__right__create">
-          <AddTwoToneIcon />
+          <IconButton>
+            <AddIcon />
+          </IconButton>
         </div>
         <div className="header__right__msg">
-          <AddTwoToneIcon />
+          <IconButton>
+            <ForumIcon />
+          </IconButton>
         </div>
         <div className="header__right__notification">
-          <AddTwoToneIcon />
+          <IconButton>
+            <NotificationsActiveIcon />
+          </IconButton>
         </div>
         <div className="header__right__account">
-          <AddTwoToneIcon />
+          <IconButton>
+            <ExpandMoreIcon />
+          </IconButton>
         </div>
       </div>
     </div>

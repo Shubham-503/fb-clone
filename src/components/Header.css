@@ -1,10 +1,16 @@
 .header {
   display: flex;
   justify-content: space-between;
-  /* position: fixed; */
-  color: blue;
+  background-color: #ffffff;
+  position: sticky;
+  z-index: 100;
+  /* position: fixed;
+  z-index: 100; */
+  /* color: blue; */
 }
-
+.MuiSvgIcon-root {
+  color: rgb(80, 77, 77);
+}
 .header__left {
   display: flex;
   margin-left: 1em;
@@ -39,7 +45,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid red;
   width: 40%;
 }
 
@@ -62,7 +67,6 @@
 
   align-items: center;
   justify-content: center;
-  border: 2px solid red;
   width: 30%;
 }
 
