@@ -3,12 +3,13 @@ import React from "react";
 import pic from "../image/pic.JPG";
 import "./Story.css";
 
-function Story({ src }) {
+function Story({ src, profileSrc, title }) {
   return (
     <div className="story">
       <div className="img">
         <img src={src} alt="..." />
-        <Avatar classname="avatar" />
+        <Avatar src={profileSrc} className="avatar" />
+        <h4>{title}</h4>
       </div>
     </div>
   );

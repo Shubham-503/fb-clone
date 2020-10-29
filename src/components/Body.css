@@ -15,4 +15,9 @@
 
 .body__story {
   display: flex;
+  overflow-x: scroll;
+}
+
+.body__story::-webkit-scrollbar {
+  display: none;
 }
