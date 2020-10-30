@@ -3,12 +3,13 @@ import { Avatar } from "@material-ui/core";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import MoodIcon from "@material-ui/icons/Mood";
-
+import { useStateValue } from "../context/StateProvider";
 import "./AddPost.css";
 
 function AddPost() {
   const [msg, setMsg] = useState("");
   const [image, setImage] = useState("");
+  const [{ user }, dispatch] = useStateValue();
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -22,12 +23,12 @@ function AddPost() {
     <div className="message">
       <div className="message__top">
         <form>
-          <Avatar />
+          <Avatar src={user.photoURL} />
           <input
             value={msg}
             onChange={(e) => setMsg(e.target.value)}
             className="message__post"
-            placeholder="what's on your mind?"
+            placeholder={`what's on your mind, ${user.displayName}?`}
           />
           <input
             value={image}
