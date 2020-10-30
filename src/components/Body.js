@@ -8,6 +8,8 @@ import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import { OndemandVideo } from "@material-ui/icons";
 import "./Body.css";
 import AddPost from "./AddPost";
+import Post from "./Post";
+import Widgets from "./Widgets";
 
 function Body() {
   return (
@@ -119,8 +121,16 @@ function Body() {
           />
         </div>
         <AddPost />
+        <Post
+          message="hi everybody"
+          image="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX_syD9X&_nc_ht=scontent.fccu3-1.fna&oh=4a6d344c106827d5d9f0ef4d8ef2d065&oe=5FC0ABA7"
+          username="Shubham"
+          profilePic="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX_syD9X&_nc_ht=scontent.fccu3-1.fna&oh=4a6d344c106827d5d9f0ef4d8ef2d065&oe=5FC0ABA7"
+        />
       </div>
-      <div className="body__right"></div>
+      <div className="body__right">
+        <Widgets />
+      </div>
     </div>
   );
 }
