@@ -4,6 +4,8 @@ import VideocamIcon from "@material-ui/icons/Videocam";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import MoodIcon from "@material-ui/icons/Mood";
 import { useStateValue } from "../context/StateProvider";
+import db from "../firebase";
+import firebase from "firebase";
 import "./AddPost.css";
 
 function AddPost() {
@@ -13,7 +15,14 @@ function AddPost() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    //some db stuff
+
+    db.collection("posts").add({
+      message: msg,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      profilePic: user.photoURL,
+      username: user.displayName,
+      image: image,
+    });
 
     setMsg("");
     setImage("");

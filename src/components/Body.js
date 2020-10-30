@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import Story from "./Story";
 import SidebarRow from "./SidebarRow";
@@ -11,9 +11,21 @@ import AddPost from "./AddPost";
 import Post from "./Post";
 import Widgets from "./Widgets";
 import { useStateValue } from "../context/StateProvider";
+import db from "../firebase";
 
 function Body() {
+  const [posts, setPosts] = useState([]);
   const [{ user }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    db.collection("posts")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setPosts(
+          snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+        );
+      });
+  }, []);
 
   return (
     <div className="body">
@@ -33,43 +45,48 @@ function Body() {
         <div className="body__story">
           <Story
             title="Shubham"
-            profileSrc="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX88gx1c&_nc_ht=scontent.fccu3-1.fna&oh=50090b44c4cc2ad074f260b136bffbc5&oe=5FC0ABA7"
+            profileSrc={user.photoURL}
             src="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX-FwEsH&_nc_ht=scontent.fccu3-1.fna&oh=e6b4a96427941df9be643551dbacdf81&oe=5FC0ABA7"
           />
           <Story
             title="Shubham"
-            profileSrc="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX88gx1c&_nc_ht=scontent.fccu3-1.fna&oh=50090b44c4cc2ad074f260b136bffbc5&oe=5FC0ABA7"
+            profileSrc={user.photoURL}
             src="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX-FwEsH&_nc_ht=scontent.fccu3-1.fna&oh=e6b4a96427941df9be643551dbacdf81&oe=5FC0ABA7"
           />
           <Story
             title="Shubham"
-            profileSrc="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX88gx1c&_nc_ht=scontent.fccu3-1.fna&oh=50090b44c4cc2ad074f260b136bffbc5&oe=5FC0ABA7"
+            profileSrc={user.photoURL}
             src="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX-FwEsH&_nc_ht=scontent.fccu3-1.fna&oh=e6b4a96427941df9be643551dbacdf81&oe=5FC0ABA7"
           />
           <Story
             title="Shubham"
-            profileSrc="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX88gx1c&_nc_ht=scontent.fccu3-1.fna&oh=50090b44c4cc2ad074f260b136bffbc5&oe=5FC0ABA7"
+            profileSrc={user.photoURL}
             src="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX-FwEsH&_nc_ht=scontent.fccu3-1.fna&oh=e6b4a96427941df9be643551dbacdf81&oe=5FC0ABA7"
           />
           <Story
             title="Shubham"
-            profileSrc="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX88gx1c&_nc_ht=scontent.fccu3-1.fna&oh=50090b44c4cc2ad074f260b136bffbc5&oe=5FC0ABA7"
+            profileSrc={user.photoURL}
             src="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX-FwEsH&_nc_ht=scontent.fccu3-1.fna&oh=e6b4a96427941df9be643551dbacdf81&oe=5FC0ABA7"
           />
           <Story
             title="Shubham"
-            profileSrc="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX88gx1c&_nc_ht=scontent.fccu3-1.fna&oh=50090b44c4cc2ad074f260b136bffbc5&oe=5FC0ABA7"
+            profileSrc={user.photoURL}
             src="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX-FwEsH&_nc_ht=scontent.fccu3-1.fna&oh=e6b4a96427941df9be643551dbacdf81&oe=5FC0ABA7"
           />
         </div>
         <AddPost />
-        <Post
-          message="hi everybody"
-          image="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX_syD9X&_nc_ht=scontent.fccu3-1.fna&oh=4a6d344c106827d5d9f0ef4d8ef2d065&oe=5FC0ABA7"
-          username="Shubham"
-          profilePic="https://scontent.fccu3-1.fna.fbcdn.net/v/t1.0-9/48362204_1719372534834556_8039148948033634304_n.jpg?_nc_cat=104&ccb=2&_nc_sid=09cbfe&_nc_ohc=ClgAf70Q6QEAX_syD9X&_nc_ht=scontent.fccu3-1.fna&oh=4a6d344c106827d5d9f0ef4d8ef2d065&oe=5FC0ABA7"
-        />
+        {posts.map((post) => (
+          <Post
+            key={post.id}
+            profilePic={post.data.profilePic}
+            message={post.data.message}
+            timestamp={post.data.timestamp}
+            username={post.data.username}
+            image={post.data.image}
+          />
+        ))}
       </div>
+
       <div className="body__right">
         <Widgets />
       </div>
