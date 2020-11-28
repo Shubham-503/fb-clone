@@ -38,8 +38,8 @@ function Header() {
       </div>
 
       <div className="header__center">
-        <div className="header__centerHome">
-          <HomeOutlinedIcon fontSize="large" />
+        <div className="header__centerHome activeNav">
+          <HomeOutlinedIcon fontSize="large" style={{ color: "#2e7ef7" }} />
         </div>
 
         <div className="header__centerWatch">
